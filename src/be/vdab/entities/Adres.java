@@ -6,7 +6,6 @@ public class Adres {
 	private int postcode;
 	private String gemeente;
 	public Adres(String straat, String huisNr, int postcode, String gemeente) {
-		super();
 		this.straat = straat;
 		this.huisNr = huisNr;
 		this.postcode = postcode;

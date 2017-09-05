@@ -4,13 +4,13 @@
 <html lang='nl'>
 	<head>
 		<c:import url='/WEB-INF/JSP/head.jsp'>
-		<c:param name='title' value='Pizza Luigi'/>
+			<c:param name='title' value='Pizza Luigi'/>
 		</c:import>
 	</head>
 	<body>
 		<c:import url='/WEB-INF/JSP/menu.jsp'/>
 		<h1>Pizza Luigi</h1>
-		<img src='images/pizza.jpg' alt='pizza' class='fullwidth'>
+		<img src= <c:url value='/images/pizza.jpg'/> alt='pizza' class='fullwidth'>
 		<h2>${begroeting}</h2>
 		<h2>De zaakvoerder</h2>
 		<dl>
