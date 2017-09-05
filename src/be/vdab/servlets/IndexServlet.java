@@ -21,10 +21,12 @@ public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String VIEW = "/WEB-INF/JSP/index.jsp";
 	private final AtomicInteger aantalKeerBekeken = new AtomicInteger();
+	private static final String INDEX_REQUESTS = "indexRequests";
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		((AtomicInteger) this.getServletContext().getAttribute(INDEX_REQUESTS)).incrementAndGet();
 		request.setAttribute("emailAdresWebMaster", 
 				this.getServletContext().getInitParameter("emailAdresWebMaster"));
 		request.setAttribute("aantalKeerBekeken", aantalKeerBekeken.incrementAndGet());
@@ -33,5 +35,9 @@ public class IndexServlet extends HttpServlet {
 				new Adres("Grote markt", "3", 9700, "Oudenaarde")));
 		request.getRequestDispatcher(VIEW).forward(request, response);
 	}
-
+	@Override
+	public void init() throws ServletException {
+		this.getServletContext().setAttribute(
+				INDEX_REQUESTS, new AtomicInteger());
+	}
 }
