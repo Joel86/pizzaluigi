@@ -25,7 +25,8 @@ public class IndexServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("emailAdresWebMaster", this.getInitParameter("emailAdresWebMaster"));
+		request.setAttribute("emailAdresWebMaster", 
+				this.getServletContext().getInitParameter("emailAdresWebMaster"));
 		request.setAttribute("aantalKeerBekeken", aantalKeerBekeken.incrementAndGet());
 		request.setAttribute("begroeting", new Begroeting());
 		request.setAttribute("zaakvoerder", new Persoon("Luigi", "Peperone", 7, true,
