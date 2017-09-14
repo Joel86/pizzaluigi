@@ -26,7 +26,6 @@ public class IdentificatieServlet extends HttpServlet {
 		request.getRequestDispatcher(VIEW).forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		session.setAttribute("gebruikersnaam",
 				request.getParameter("gebruikersnaam"));
