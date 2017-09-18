@@ -23,6 +23,10 @@ public class IdentificatieServlet extends HttpServlet {
 				request.setAttribute("gebruikersnaam", gebruikersnaam);
 			}
 		}
+		String locale = request.getParameter("locale");
+		if(locale != null) {
+			request.getSession().setAttribute("locale", locale);
+		}
 		request.getRequestDispatcher(VIEW).forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
